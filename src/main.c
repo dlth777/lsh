@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-# include  < sys / stat.h >
+#include <sys/stat.h>
 #include <time.h>
 #include <dirent.h>
 #include <fcntl.h>
@@ -89,21 +89,21 @@ int lsh_help(char **args)
   return 1;
 }
 
-int  mymkdir ( int argc, char * argv [])
+int mymkdir(int argc,char *argv[])
 {
 
-	if (argc! = 2 ) // 입력이 mkdir pathname 형식이 아니면 오류 메시지를 표시합니다.
+	if(argc!=2) //If the input is not of the form mkdir pathname, then display error message.
 	{
-		printf ( " 잘못된 인수 개수 \ n " );
-		반환 ;
+		printf("Invalid number of arguments\n");
+		return ;
 	}
 
-	if (! mkdir (argv [ 1 ], 0775 )) // 인수에 지정된 이름으로 디렉토리를 만듭니다.
-		printf ( " % s 이 (가) 생성되었습니다. \ n " , argv [ 1 ]);
-	그밖에
-		perror ( " mkdir " ); // 디렉터리 생성을 시도하는 동안 발생한 오류를 표시합니다.
+	if(!mkdir(argv[1],0775)) //Create a directory with the name specified in the argument.
+		printf("%s was created\n",argv[1]);
+	else
+		perror("mkdir");//Display the error occurred while trying to create the directory. 
 
-	반환  0 ;
+	return 0;
 }
 
 int myls(int argc, char *argv[])
